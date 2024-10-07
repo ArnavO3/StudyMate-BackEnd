@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 require("dotenv").config(); // Load environment variables
+const mongoURI = process.env.MONGO_URI;
 var cors = require("cors");
 
 const app = express();
@@ -12,8 +13,6 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-const mongoURI =
-  "mongodb+srv://Arnav__O3:arnav03@cluster0.hhzdqdv.mongodb.net/SkillShare";
 mongoose
   .connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log("MongoDB connected..."))
